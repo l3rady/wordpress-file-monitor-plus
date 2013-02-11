@@ -1,0 +1,320 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-09 13:08+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: o6asan <o6asan@yahoo.de>\n"
+"Language-Team: o6asan\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Japanese\n"
+"X-Poedit-Country: JAPAN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+msgid "Monitor your website for added/changed/deleted files"
+msgstr "このプラグインはサイトのファイルの追加/変更/削除についてモニターします。"
+
+#: classes/wpfmp.class.php:144
+msgid "Scan Successful"
+msgstr "検索成功。"
+
+#: classes/wpfmp.class.php:324
+#: classes/wpfmp.class.php:480
+msgid "Clear admin alert"
+msgstr "警告解除"
+
+#: classes/wpfmp.class.php:326
+#, php-format
+msgid "Files Changed: %d"
+msgstr "変更されたファイル数: %d"
+
+#: classes/wpfmp.class.php:327
+#, php-format
+msgid "Files Added: %d"
+msgstr "追加されたファイル数: %d"
+
+#: classes/wpfmp.class.php:328
+#, php-format
+msgid "Files Removed: %d"
+msgstr "削除されたファイル数: %d"
+
+#: classes/wpfmp.class.php:334
+msgid "Files Changed:"
+msgstr "変更されたファイル:"
+
+#: classes/wpfmp.class.php:338
+#: classes/wpfmp.class.php:399
+#: classes/wpfmp.class.php:442
+msgid "File"
+msgstr "ファイル"
+
+#: classes/wpfmp.class.php:342
+#: classes/wpfmp.class.php:402
+msgid "New Filesize"
+msgstr "サイズ(新)"
+
+#: classes/wpfmp.class.php:343
+#: classes/wpfmp.class.php:445
+msgid "Old Filesize"
+msgstr "サイズ(旧)"
+
+#: classes/wpfmp.class.php:348
+#: classes/wpfmp.class.php:405
+msgid "New Modified"
+msgstr "今回の修正日時"
+
+#: classes/wpfmp.class.php:349
+#: classes/wpfmp.class.php:448
+msgid "Old Modified"
+msgstr "前回の修正日時"
+
+#: classes/wpfmp.class.php:354
+#: classes/wpfmp.class.php:408
+msgid "New Hash"
+msgstr "新ハッシュ(MD5)"
+
+#: classes/wpfmp.class.php:355
+#: classes/wpfmp.class.php:451
+msgid "Old Hash"
+msgstr "旧ハッシュ(MD5)"
+
+#: classes/wpfmp.class.php:395
+msgid "Files Added:"
+msgstr "追加されたファイル:"
+
+#: classes/wpfmp.class.php:438
+msgid "Files Removed:"
+msgstr "削除されたファイル:"
+
+#: classes/wpfmp.class.php:497
+#, php-format
+msgid "WordPress File Monitor Plus: Alert (%s)"
+msgstr "WordPress File Monitor: 警告 (%s)"
+
+#: classes/wpfmp.class.php:533
+#: classes/wpfmp.settings.class.php:306
+msgid "WordPress File Monitor Plus"
+msgstr "WordPress File Monitor Plus"
+
+#: classes/wpfmp.class.php:610
+msgid "<strong>Warning!</strong> WordPress File Monitor Plus has detected a change in the files on your site."
+msgstr "<strong>警告!</strong> WordPress File Monitor Plusはサイト上でファイルの書き換えを発見しました。"
+
+#: classes/wpfmp.class.php:612
+msgid "View file changes and clear this alert"
+msgstr "ファイルの変更部分を確認して，警告を解除してください。"
+
+#: classes/wpfmp.settings.class.php:236
+msgid "Manual scan completed"
+msgstr "手動検索完了"
+
+#: classes/wpfmp.settings.class.php:244
+msgid "Settings reset"
+msgstr "設定をリセット"
+
+#: classes/wpfmp.settings.class.php:251
+msgid "Admin alert cleared"
+msgstr "警告を解除しました"
+
+#: classes/wpfmp.settings.class.php:262
+msgid "Invalid action encountered"
+msgstr "不正な操作が行われました。"
+
+#: classes/wpfmp.settings.class.php:284
+#: classes/wpfmp.settings.class.php:340
+msgid "Settings"
+msgstr "設定"
+
+#: classes/wpfmp.settings.class.php:286
+msgid "Manual Scan"
+msgstr "手動検索"
+
+#: classes/wpfmp.settings.class.php:311
+msgid "Never"
+msgstr "未実行"
+
+#: classes/wpfmp.settings.class.php:315
+#, php-format
+msgid "Last scanned: %s"
+msgstr "最終検索日: %s"
+
+#: classes/wpfmp.settings.class.php:326
+msgid "Save changes"
+msgstr "設定保存"
+
+#: classes/wpfmp.settings.class.php:327
+msgid "Save settings with test email"
+msgstr "設定を保存し，テストメールを送る。"
+
+#: classes/wpfmp.settings.class.php:328
+msgid "Manual scan"
+msgstr "手動検索"
+
+#: classes/wpfmp.settings.class.php:329
+msgid "Reset settings to defaults"
+msgstr "初期設定に戻す"
+
+#: classes/wpfmp.settings.class.php:341
+msgid "Cron Method"
+msgstr "スケジューラ:"
+
+#: classes/wpfmp.settings.class.php:342
+msgid "File Check Interval"
+msgstr "チェック実行間隔:"
+
+#: classes/wpfmp.settings.class.php:343
+msgid "Notify By Email"
+msgstr "メールで通知する: "
+
+#: classes/wpfmp.settings.class.php:344
+msgid "Notify Email Address"
+msgstr "通知先アドレス: "
+
+#: classes/wpfmp.settings.class.php:345
+msgid "From Email Address"
+msgstr "差出人アドレス:"
+
+#: classes/wpfmp.settings.class.php:346
+msgid "Admin Alert"
+msgstr "管理者に警告する"
+
+#: classes/wpfmp.settings.class.php:347
+msgid "File Check Method"
+msgstr "チェックする属性: "
+
+#: classes/wpfmp.settings.class.php:348
+msgid "File Check Root"
+msgstr "調査ルートディレクトリ: "
+
+#: classes/wpfmp.settings.class.php:349
+msgid "Dirs/Files To Ignore"
+msgstr "無視するディレクトリ/ファイル<br />　ワイルドカード(*)使用可。"
+
+#: classes/wpfmp.settings.class.php:350
+msgid "File Extensions Scan"
+msgstr "拡張子検索"
+
+#: classes/wpfmp.settings.class.php:351
+msgid "File Extensions"
+msgstr "拡張子"
+
+#: classes/wpfmp.settings.class.php:362
+msgid "Invalid cron method selected"
+msgstr "選択されたスケジューラ実行方法は無効です。"
+
+#: classes/wpfmp.settings.class.php:373
+msgid "Invalid file check interval selected"
+msgstr "選択されたチェック実行間隔は無効です。"
+
+#: classes/wpfmp.settings.class.php:381
+msgid "Invalid notify by email selected"
+msgstr "選択された通知アドレスは無効です。"
+
+#: classes/wpfmp.settings.class.php:393
+msgid "One or more email to addresses are invalid"
+msgstr "無効な通知先メールアドレスが設定されています。"
+
+#: classes/wpfmp.settings.class.php:403
+msgid "No email to address entered"
+msgstr "通知先アドレスが未記入です。"
+
+#: classes/wpfmp.settings.class.php:411
+msgid "Invalid from email address entered"
+msgstr "記入された差出人アドレスは無効です。"
+
+#: classes/wpfmp.settings.class.php:418
+msgid "Invalid display admin alert selected"
+msgstr "選択された警告の表示は無効です。"
+
+#: classes/wpfmp.settings.class.php:427
+msgid "File check root is not valid. Make sure that PHP has read permissions of the entered file check root"
+msgstr "チェック・ルートが無効です。PHPが記入ルートを読み込み可能か確認してください。"
+
+#: classes/wpfmp.settings.class.php:436
+msgid "Invalid file extension mode selected"
+msgstr "拡張子モードの選択は無効です。"
+
+#: classes/wpfmp.settings.class.php:450
+msgid "This is a test message from WordPress File Monitor Plus."
+msgstr "これは，WordPress File Monitor Plusのテストメールです。"
+
+#: classes/wpfmp.settings.class.php:465
+msgid "WordPress Cron"
+msgstr "WordPress Cron"
+
+#: classes/wpfmp.settings.class.php:466
+msgid "Other Cron"
+msgstr "他のCron"
+
+#: classes/wpfmp.settings.class.php:470
+msgid "Cron Command: "
+msgstr "スケジューラ用コマンド:"
+
+#: classes/wpfmp.settings.class.php:482
+msgid "Hourly"
+msgstr "１時間ごと"
+
+#: classes/wpfmp.settings.class.php:483
+msgid "Twice Daily"
+msgstr "１２時間ごと"
+
+#: classes/wpfmp.settings.class.php:484
+msgid "Daily"
+msgstr "１日ごと"
+
+#: classes/wpfmp.settings.class.php:485
+msgid "Manual"
+msgstr "手動"
+
+#: classes/wpfmp.settings.class.php:496
+#: classes/wpfmp.settings.class.php:522
+msgid "Yes"
+msgstr "はい"
+
+#: classes/wpfmp.settings.class.php:497
+#: classes/wpfmp.settings.class.php:523
+msgid "No"
+msgstr "いいえ"
+
+#: classes/wpfmp.settings.class.php:506
+msgid "Separate multiple email address with a comma (,)"
+msgstr "メールアドレスを記入してください。(区切り記号は　,　複数記入可)"
+
+#: classes/wpfmp.settings.class.php:533
+msgid " File Size"
+msgstr "ファイルサイズ"
+
+#: classes/wpfmp.settings.class.php:534
+msgid " Date Modified"
+msgstr "修正日時"
+
+#: classes/wpfmp.settings.class.php:535
+msgid " File Hash"
+msgstr "ファイルハッシュ"
+
+#: classes/wpfmp.settings.class.php:543
+#, php-format
+msgid "Default: %s"
+msgstr " (初期値: %s)"
+
+#: classes/wpfmp.settings.class.php:559
+msgid "Disabled"
+msgstr "無効"
+
+#: classes/wpfmp.settings.class.php:560
+msgid "Exclude files that have an extension listed below"
+msgstr "下のリストの拡張子を持っているファイルは除く。"
+
+#: classes/wpfmp.settings.class.php:561
+msgid "Only scan files that have an extension listed below"
+msgstr "下のリストの拡張子を持っているファイルだけを検索する。"
+
+#: classes/wpfmp.settings.class.php:570
+msgid "Separate extensions with | character."
+msgstr "拡張子を記入してください。(区切り記号は　|　)"
+
