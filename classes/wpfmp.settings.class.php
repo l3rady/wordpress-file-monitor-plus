@@ -438,8 +438,13 @@ if ( ! class_exists( 'sc_WordPressFileMonitorPlusSettings' ) )
                 $valid['file_extension_mode'] = $sanitized_file_extension_mode;
             else
                 add_settings_error( "sc_wpfmp_settings_main_file_extension_mode", "sc_wpfmp_settings_main_file_extension_mode_error", __( "Invalid file extension mode selected", "wordpress-file-monitor-plus" ), "error" );
-            
-            $valid['file_extensions'] = self::file_extensions_to_array( $input['file_extensions'] );
+
+			if( !empty( $input['file_extensions'] ) ) {
+				$valid['file_extensions'] = self::file_extensions_to_array( $input['file_extensions'] );
+			} else {
+				$valid['file_extensions'] = array();
+			}
+
 
             if( isset( $_POST['submitwithemail'] ) )
                 add_filter( 'pre_set_transient_settings_errors', array( __CLASS__, "send_test_email" ) );
