@@ -417,7 +417,11 @@ if ( ! class_exists( 'sc_WordPressFileMonitorPlusSettings' ) )
             else
                 add_settings_error( "sc_wpfmp_settings_main_display_admin_alert", "sc_wpfmp_settings_main_display_admin_alert_error", __( "Invalid display admin alert selected", "wordpress-file-monitor-plus" ), "error" );
             
-            $valid['file_check_method'] = array_map( array( __CLASS__, 'file_check_method_func' ), $input['file_check_method'] );
+            if( isset( $input['file_check_method'] ) ) {
+				$valid['file_check_method'] = array_map( array( __CLASS__, 'file_check_method_func' ), (array) $input['file_check_method'] );
+			} else {
+				$valid['file_check_method'] = array();
+			}
             
             $sanitized_site_root = realpath( $input['site_root'] );
             
