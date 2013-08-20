@@ -418,9 +418,15 @@ if ( ! class_exists( 'sc_WordPressFileMonitorPlusSettings' ) )
                 add_settings_error( "sc_wpfmp_settings_main_display_admin_alert", "sc_wpfmp_settings_main_display_admin_alert_error", __( "Invalid display admin alert selected", "wordpress-file-monitor-plus" ), "error" );
             
             if( isset( $input['file_check_method'] ) ) {
-				$valid['file_check_method'] = array_map( array( __CLASS__, 'file_check_method_func' ), (array) $input['file_check_method'] );
+				$valid['file_check_method']['size'] = isset( $input['file_check_method']['size'] ) ? 1 : 0;
+				$valid['file_check_method']['modified'] = isset( $input['file_check_method']['modified'] ) ? 1 : 0;
+				$valid['file_check_method']['md5'] = isset( $input['file_check_method']['md5'] ) ? 1 : 0;
 			} else {
-				$valid['file_check_method'] = array();
+				$valid['file_check_method'] = array(
+					'size' => 0,
+					'modified' => 0,
+					'md5' => 0
+				);
 			}
             
             $sanitized_site_root = realpath( $input['site_root'] );
@@ -576,24 +582,7 @@ if ( ! class_exists( 'sc_WordPressFileMonitorPlusSettings' ) )
         static public function sc_wpfmp_settings_main_field_file_extensions()
         {
             $options = get_option( sc_WordPressFileMonitorPlus::$settings_option_field );
-            ?><input class="regular-text" name="<?php echo sc_WordPressFileMonitorPlus::$settings_option_field ?>[file_extensions]" value="<?php echo implode($options['file_extensions'], "|" ); ?>" /> <span class="description"><?php _e( "Separate extensions with | character.", "wordpress-file-monitor-plus" ); ?></span><?php
-        }
-
-
-        /**
-         * Anything not a 1 is made 0
-         *
-         * @param int $n value to check
-         * @return int $n value as 1 or 0
-         */
-        static protected function file_check_method_func( $n )
-        {
-            $n = absint( $n );
-
-            if( 1 !== $n )
-                $n = 0;
-
-            return $n;
+            ?><input class="regular-text" name="<?php echo sc_WordPressFileMonitorPlus::$settings_option_field ?>[file_extensions]" value="<?php echo implode( (array) $options['file_extensions'], "|" ); ?>" /> <span class="description"><?php _e( "Separate extensions with | character.", "wordpress-file-monitor-plus" ); ?></span><?php
         }
 
 
