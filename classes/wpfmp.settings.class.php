@@ -417,7 +417,11 @@ if ( ! class_exists( 'sc_WordPressFileMonitorPlusSettings' ) )
             else
                 add_settings_error( "sc_wpfmp_settings_main_display_admin_alert", "sc_wpfmp_settings_main_display_admin_alert_error", __( "Invalid display admin alert selected", "wordpress-file-monitor-plus" ), "error" );
             
-            $valid['file_check_method'] = array_map( array( __CLASS__, 'file_check_method_func' ), $input['file_check_method'] );
+            if( isset( $input['file_check_method'] ) ) {
+				$valid['file_check_method'] = array_map( array( __CLASS__, 'file_check_method_func' ), (array) $input['file_check_method'] );
+			} else {
+				$valid['file_check_method'] = array();
+			}
             
             $sanitized_site_root = realpath( $input['site_root'] );
             
@@ -434,8 +438,13 @@ if ( ! class_exists( 'sc_WordPressFileMonitorPlusSettings' ) )
                 $valid['file_extension_mode'] = $sanitized_file_extension_mode;
             else
                 add_settings_error( "sc_wpfmp_settings_main_file_extension_mode", "sc_wpfmp_settings_main_file_extension_mode_error", __( "Invalid file extension mode selected", "wordpress-file-monitor-plus" ), "error" );
-            
-            $valid['file_extensions'] = self::file_extensions_to_array( $input['file_extensions'] );
+
+			if( !empty( $input['file_extensions'] ) ) {
+				$valid['file_extensions'] = self::file_extensions_to_array( $input['file_extensions'] );
+			} else {
+				$valid['file_extensions'] = array();
+			}
+
 
             if( isset( $_POST['submitwithemail'] ) )
                 add_filter( 'pre_set_transient_settings_errors', array( __CLASS__, "send_test_email" ) );
