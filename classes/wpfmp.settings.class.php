@@ -56,13 +56,6 @@ if ( ! class_exists( 'sc_WordPressFileMonitorPlusSettings' ) )
             // Get existing options
             $options = (array) maybe_unserialize( get_option( sc_WordPressFileMonitorPlus::$settings_option_field ) );
 
-            // Are we before 1.3? If so we need to do a conversion process to 1.4
-            if( isset( $current_ver ) && ( $current_ver <= 1.4 ) )
-                $options = self::update_settings_pre_1_4_to_1_4( $options );
-
-            if( isset( $current_ver ) && ( $current_ver <= 2.1 ) )
-                $options = self::update_settings_pre_2_1_to_2_1( $options );
-
             // Default setting values for WPFMP
             $defaults = array(
                 'cron_method' => 'wordpress', // Cron method to be used for scheduling scans
@@ -107,69 +100,6 @@ if ( ! class_exists( 'sc_WordPressFileMonitorPlusSettings' ) )
 
             // Files don't exist so copy them across.
             self::xcopy( SC_WPFMP_DATA_FOLDER_OLD, SC_WPFMP_DATA_FOLDER );
-        }
-
-
-        /**
-        * Upgrades settings from pre version 1.4 to version 1.4
-        *
-        * Now combined all excluding of files and dirs into one
-        * setting that now uses fnmatch(). Because of this the old
-        * settings need copying over to the new setting as well as
-        * converting to an fnmatch() compatible format.
-        *
-        * @param array $options
-        * @return array $options
-        */
-        static private function update_settings_pre_1_4_to_1_4( $options )
-        {
-            $options['exclude_paths_files'] = array();
-
-            if( isset( $options['exclude_paths'] ) )
-            {
-                foreach( $options['exclude_paths'] as $exclude )
-                    $options['exclude_paths_files'][] = rtrim( $exclude, DIRECTORY_SEPARATOR ) . DIRECTORY_SEPARATOR . "*";
-            }
-
-            if( isset( $options['exclude_files'] ) )
-            {
-                foreach( $options['exclude_files'] as $exclude )
-                    $options['exclude_paths_files'][] = $exclude;
-            }
-
-            if( isset( $options['exclude_paths_wild'] ) )
-            {
-                foreach( $options['exclude_paths_wild'] as $exclude )
-                    $options['exclude_paths_files'][] = "*" . DIRECTORY_SEPARATOR . trim( $exclude, DIRECTORY_SEPARATOR ) . DIRECTORY_SEPARATOR . "*";
-            }
-
-            if( isset( $options['exclude_files_wild'] ) )
-            {
-                foreach( $options['exclude_files_wild'] as $exclude )
-                    $options['exclude_paths_files'][] = "*" . DIRECTORY_SEPARATOR . ltrim( $exclude, DIRECTORY_SEPARATOR );
-            }
-
-            return $options;
-        }
-
-
-        /**
-         * Version 2.1 no longer uses DB store for data and alert, so do a little clean up.
-         * Also clear admin alert as the new data layout changed would break an existing alert.
-         *
-         * @param array $options
-         * @return array $options
-         */
-        static private function update_settings_pre_2_1_to_2_1( $options )
-        {
-
-            // Clear any previous alert that might be in DB as new plugin settings
-            $options['is_admin_alert'] = 0;
-
-            delete_option( "sc_wpfmp_scan_data" );
-            delete_option( "sc_wpfmp_admin_alert_content" );
-
-            return $options;
         }
 
 
