@@ -89,17 +89,6 @@ if ( ! class_exists( 'sc_WordPressFileMonitorPlusSettings' ) )
             // Update settings and version number
             update_option( sc_WordPressFileMonitorPlus::$settings_option_field, $options ); // update settings
             update_option( sc_WordPressFileMonitorPlus::$settings_option_field_ver, sc_WordPressFileMonitorPlus::$settings_option_field_current_ver ); // update settings version
-
-            // Check that data files exist
-            if( file_exists( SC_WPFMP_FILE_SCAN_DATA ) && file_exists( SC_WPFMP_FILE_ALERT_CONTENT ) )
-                return;
-
-            // Check dir exists, if not make it.
-            if( ! is_dir( SC_WPFMP_DATA_FOLDER ) )
-                mkdir( SC_WPFMP_DATA_FOLDER );
-
-            // Files don't exist so copy them across.
-            self::xcopy( SC_WPFMP_DATA_FOLDER_OLD, SC_WPFMP_DATA_FOLDER );
         }
 
 
@@ -548,70 +537,12 @@ if ( ! class_exists( 'sc_WordPressFileMonitorPlusSettings' ) )
 
 
         /**
-         * Recursively copy a folder
-         *
-         * @param string $src Source folder
-         * @param string $dest Destination folder
-         */
-        static public function xcopy( $src, $dest )
-        {
-            foreach( scandir( $src ) as $file )
-            {
-                if ( '.' == $file || '..' == $file || ! is_readable( $src . DIRECTORY_SEPARATOR . $file ) )
-                    continue;
-
-                if ( is_dir( $file ) )
-                {
-                    mkdir( $dest . DIRECTORY_SEPARATOR . $file );
-                    self::xcopy( $src . DIRECTORY_SEPARATOR . $file, $dest . DIRECTORY_SEPARATOR . $file );
-                } else
-                {
-                    copy( $src . DIRECTORY_SEPARATOR . $file, $dest . DIRECTORY_SEPARATOR . $file );
-                }
-            }
-        }
-
-
-        /**
-         * Delete folder and all its contents
-         *
-         * @param $dir string Directory of folder to be deleted.
-         * @return bool Returns false on none directory passed.
-         */
-        static public function rrmdir( $dir )
-        {
-            if( ! is_dir( $dir ) )
-                return false;
-
-            $objects = scandir( $dir );
-
-            foreach ( $objects as $object )
-            {
-                if( in_array( $object, array( ".", ".." ) ) )
-                    continue;
-
-                if ( is_dir( $dir . DIRECTORY_SEPARATOR . $object ) )
-                    self::rrmdir( $dir. DIRECTORY_SEPARATOR .$object );
-                else
-                    unlink( $dir . DIRECTORY_SEPARATOR . $object );
-            }
-
-            reset( $objects );
-            rmdir( $dir );
-
-            return true;
-        }
-
-
-        /**
          * Function that runs on uninstall. Called from the uninstall.php file
          */
         static public function uninstall()
         {
             delete_option( "sc_wpfmp_settings" );
             delete_option( "sc_wpfmp_settings_ver" );
-
-            self::rrmdir( SC_WPFMP_DATA_FOLDER );
         }
     }
 }
